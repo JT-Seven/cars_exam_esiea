@@ -1,0 +1,56 @@
+<form [formGroup]="registerForm" (ngSubmit)="signUp()" class="container-form">
+  <div class="container-logo">
+    <img src="../../assets/logo-cars.png" alt="logo-cars">
+  </div>
+
+  <div class="input-container">
+    <ion-input label="Nom d'utilisateur" label-placement="floating" type="text" formControlName="username"
+      fill="outline" placeholder="Entrez nom d'utilisateur" required></ion-input>
+    <ion-text color="danger" *ngIf="registerForm.get('username')?.touched">
+      {{ getErrorMessage('username') }}
+    </ion-text>
+  </div>
+
+  <div class="input-container">
+    <ion-input label="E-mail" label-placement="floating" type="email" formControlName="email" fill="outline"
+      placeholder="Entrez votre e-mail" required></ion-input>
+    <ion-text color="danger" *ngIf="registerForm.get('email')?.touched">
+      {{ getErrorMessage('email') }}
+    </ion-text>
+  </div>
+
+  <div class="input-container">
+    <ion-input label="Numéro de téléphone" label-placement="floating" type="tel" formControlName="phone" fill="outline"
+      placeholder="Entrez votre numéro de téléphone" required></ion-input>
+    <ion-text color="danger" *ngIf="registerForm.get('phone')?.touched">
+      {{ getErrorMessage('phone') }}
+    </ion-text>
+  </div>
+
+  <div class="input-container">
+    <ion-input label="Mot de passe" label-placement="floating" type="password" formControlName="password" fill="outline"
+      placeholder="Entrez votre mot de passe" required></ion-input>
+    <ion-text color="danger" *ngIf="registerForm.get('password')?.touched">
+      {{ getErrorMessage('password') }}
+    </ion-text>
+  </div>
+
+  <div class="input-container">
+    <ion-input label="Confirmation du mot de passe" label-placement="floating" type="password"
+      formControlName="confirmPassword" fill="outline" placeholder="Entrez votre mot de passe" required></ion-input>
+    <ion-text color="danger" *ngIf="registerForm.get('confirmPassword')?.touched">
+      {{ getErrorMessage('confirmPassword') }}
+    </ion-text>
+  </div>
+
+  <ion-button expand="full" shape="round" type="submit" [disabled]="registerForm.invalid" class="custom-blue">
+    S'inscrire
+  </ion-button>
+
+  <div class="login-link">
+    <ion-text color="medium">Déjà inscrit ?</ion-text>
+    <a (click)="goToLogin()">Se connecter</a>
+  </div>
+</form>
+
+<spline-viewer url="https://prod.spline.design/hoJxAkHd78z3EHBu/scene.splinecode"></spline-viewer>

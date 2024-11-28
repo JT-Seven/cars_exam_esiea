@@ -1,0 +1,33 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()" class="container-form">
+  <div class="container-logo">
+    <img src="../../assets/logo-cars.png" alt="logo-cars">
+  </div>
+
+  <div class="input-container">
+    <ion-input label="E-mail" label-placement="floating" type="email" formControlName="email" fill="outline"
+      placeholder="Entrez votre e-mail" required></ion-input>
+    <ion-text color="danger" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+      {{ getErrorMessage('email') }}
+    </ion-text>
+  </div>
+
+  <div class="input-container">
+    <ion-input label="Mot de passe" label-placement="floating" type="password" formControlName="password" fill="outline"
+      placeholder="Entrez votre mot de passe" required></ion-input>
+    <ion-text color="danger" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+      {{ getErrorMessage('password') }}
+    </ion-text>
+  </div>
+
+  <ion-button expand="full" type="submit" [disabled]="loginForm.invalid" shape="round" class="custom-blue">Se
+    connecter</ion-button>
+
+  <ion-text color="danger" *ngIf="errorMessage">{{ errorMessage }}</ion-text>
+
+  <div class="register-link">
+    <ion-text color="medium">Pas encore inscrit ?</ion-text>
+    <a (click)="goToRegister()">Créer un compte</a>
+  </div>
+</form>
+
+<spline-viewer url="https://prod.spline.design/hoJxAkHd78z3EHBu/scene.splinecode"></spline-viewer>

@@ -1,0 +1,7 @@
+{
+  "name": "exam_cars_esiea",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

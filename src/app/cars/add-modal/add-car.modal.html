@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Ajout d'une voiture</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="onSubmit()" #carForm="ngForm">
+    <ion-item>
+      <ion-label position="stacked">Marque</ion-label>
+      <ion-input type="text" required [(ngModel)]="carData.brand" name="brand" placeholder="Entrez la marque">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Modèle</ion-label>
+      <ion-input type="text" required [(ngModel)]="carData.model" name="model" placeholder="Entrez le modèle">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Plaque d'immatriculation</ion-label>
+      <ion-input type="text" required [(ngModel)]="carData.licensePlate" name="licensePlate"
+        placeholder="Entrez la plaque d'immatriculation">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Photo avant</ion-label>
+      <input type="file" accept="image/*" (change)="onFileSelected($event, 'front')">
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Photo arrière</ion-label>
+      <input type="file" accept="image/*" (change)="onFileSelected($event, 'back')">
+    </ion-item>
+
+    <ion-button expand="block" type="submit" (click)="dismiss()" [disabled]="!carForm.form.valid">Enregistrer</ion-button>
+  </form>
+</ion-content>

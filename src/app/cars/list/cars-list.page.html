@@ -1,0 +1,30 @@
+<section class="container-cars">
+  <ion-header [translucent]="true">
+    <div class="container-logo">
+      <img src="../../assets/logo-cars.png" alt="logo-cars">
+    </div>
+    <ion-button (click)="openAddCarModal()"><img src="../../assets/icon-plus.svg" alt="Ajouter une voiture"> Ajouter</ion-button>
+  </ion-header>
+  <div class="container-cars-grid">
+    <ion-card class="container-cars-card">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6" size-lg="4" *ngFor="let car of carImages" >
+            <ion-card class="card">
+              <img [src]="car.url" [alt]="car.name" />
+              <ion-card-header>
+                <ion-card-title>
+                  {{ getCarDetail(car.name, 'brand') }} - 
+                  {{ getCarDetail(car.name, 'model') }} - 
+                  {{ getCarDetail(car.name, 'licensePlate') }}
+                </ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</section>
+
+<spline-viewer url="https://prod.spline.design/NaxgiBd8vofp6fG5/scene.splinecode"></spline-viewer>
