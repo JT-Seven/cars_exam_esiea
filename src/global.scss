@@ -58,7 +58,7 @@ body {
     align-items: center;
     justify-content: center;
     ion-input {
-      color: white;
+      color: #ffffffe0;
       width: 100%;
       max-width: 400px;
       margin-bottom: 12px;
@@ -67,12 +67,15 @@ body {
       background-color: rgba(255, 255, 255, 0.015);
       backdrop-filter: blur(10px);
 
-      &:hover {
-        border-color: white;
+      .label-text-wrapper {
+        font-size: 14px;
+        position: relative;
+        top: 0.25rem;
       }
     }
     ion-text {
       margin: 5px auto 15px 0;
+      font-size: 14px;
     }
   }
 
@@ -86,6 +89,7 @@ body {
     --color: white;
     position: relative;
     z-index: 2;
+    font-size: 14px;
   }
 
   .register-link,

@@ -1,40 +1,52 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>Ajout d'une voiture</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form (ngSubmit)="onSubmit()" #carForm="ngForm">
-    <ion-item>
-      <ion-label position="stacked">Marque</ion-label>
-      <ion-input type="text" required [(ngModel)]="carData.brand" name="brand" placeholder="Entrez la marque">
-      </ion-input>
-    </ion-item>
+    <form (ngSubmit)="onSubmit()" class="container-form" #carForm="ngForm">
+      <div class="input-container">
+        <ion-input label="Photo avant" label-placement="stacked" type="file" (change)="handleFile($event, 'front')"
+          accept="image/*">
+        </ion-input>
+      </div>
 
-    <ion-item>
-      <ion-label position="stacked">Modèle</ion-label>
-      <ion-input type="text" required [(ngModel)]="carData.model" name="model" placeholder="Entrez le modèle">
-      </ion-input>
-    </ion-item>
+      <div class="input-container">
+        <ion-input label="Photo arrière" label-placement="stacked" type="file" (change)="handleFile($event, 'back')"
+          accept="image/*">
+        </ion-input>
+      </div>
+      <div class="input-container">
+        <ion-input label="Marque" label-placement="floating" type="text" [(ngModel)]="formData.brand" name="brand"
+          fill="outline" placeholder="Entrez la marque" required>
+        </ion-input>
+      </div>
 
-    <ion-item>
-      <ion-label position="stacked">Plaque d'immatriculation</ion-label>
-      <ion-input type="text" required [(ngModel)]="carData.licensePlate" name="licensePlate"
-        placeholder="Entrez la plaque d'immatriculation">
-      </ion-input>
-    </ion-item>
+      <div class="input-container">
+        <ion-input label="Modèle" label-placement="floating" type="text" [(ngModel)]="formData.model" name="model"
+          fill="outline" placeholder="Entrez le modèle" required>
+        </ion-input>
+      </div>
 
-    <ion-item>
-      <ion-label position="stacked">Photo avant</ion-label>
-      <input type="file" accept="image/*" (change)="onFileSelected($event, 'front')">
-    </ion-item>
+      <div class="input-container">
+        <ion-input label="Plaque d'immatriculation" label-placement="floating" type="text"
+          [(ngModel)]="formData.licensePlate" name="licensePlate" fill="outline"
+          placeholder="Entrez la plaque d'immatriculation" required>
+        </ion-input>
+      </div>
 
-    <ion-item>
-      <ion-label position="stacked">Photo arrière</ion-label>
-      <input type="file" accept="image/*" (change)="onFileSelected($event, 'back')">
-    </ion-item>
 
-    <ion-button expand="block" type="submit" (click)="dismiss()" [disabled]="!carForm.form.valid">Enregistrer</ion-button>
-  </form>
+      <div class="button-container">
+        <ion-buttons slot="start">
+          <ion-button expand="full" shape="round" class="button-cancel" (click)="cancel()">
+            Annuler
+          </ion-button>
+        </ion-buttons>
+        <ion-button expand="full" shape="round" type="submit" class="custom-blue" (click)="cancel()"
+          [disabled]="!carForm.form.valid">
+          Enregistrer
+        </ion-button>
+      </div>
+    </form>
 </ion-content>

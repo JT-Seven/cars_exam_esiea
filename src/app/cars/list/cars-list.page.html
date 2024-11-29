@@ -3,22 +3,26 @@
     <div class="container-logo">
       <img src="../../assets/logo-cars.png" alt="logo-cars">
     </div>
-    <ion-button (click)="openAddCarModal()"><img src="../../assets/icon-plus.svg" alt="Ajouter une voiture"> Ajouter</ion-button>
+    <ion-button class="button-add-car" (click)="openAddCarModal()"><img src="../../assets/icon-plus.svg" alt="Ajouter une voiture">
+      <span>Ajouter</span></ion-button>
   </ion-header>
   <div class="container-cars-grid">
     <ion-card class="container-cars-card">
       <ion-grid>
         <ion-row>
-          <ion-col size="12" size-md="6" size-lg="4" *ngFor="let car of carImages" >
-            <ion-card class="card">
+          <ion-col size="12" size-md="6" size-lg="4" *ngFor="let car of carImages">
+            <ion-card>
               <img [src]="car.url" [alt]="car.name" />
               <ion-card-header>
-                <ion-card-title>
-                  {{ getCarDetail(car.name, 'brand') }} - 
-                  {{ getCarDetail(car.name, 'model') }} - 
-                  {{ getCarDetail(car.name, 'licensePlate') }}
-                </ion-card-title>
+                <ion-card-title>{{ getCarDetail(car.name, 'model') }}</ion-card-title>
+                <ion-subtitle>{{ getCarDetail(car.name, 'brand') }}</ion-subtitle>
               </ion-card-header>
+              <div class="container-cars-card-content">
+                <ion-card-content>{{ getCarDetail(car.name, 'licensePlate') }}</ion-card-content>
+              </div>
+              <ion-button class="button-delete-car" fill="clear" color="danger" (click)="deleteCar(car.name)">
+                <img src="../../../assets/trash-outline.svg" alt="Supprimer la voiture">
+              </ion-button>
             </ion-card>
           </ion-col>
         </ion-row>

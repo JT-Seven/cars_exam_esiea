@@ -15,7 +15,7 @@ import { importProvidersFrom } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { environment } from './environments/environment';
 
-initializeApp(environment.firebaseConfig);
+initializeApp(environment.firebaseConfig); 
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -27,7 +27,7 @@ bootstrapApplication(AppComponent, {
       IonicModule.forRoot({ innerHTMLTemplatesEnabled: true }),
     ),
     provideIonicAngular(),
-    provideFirebaseApp(() => firebaseInitializeApp(environment.firebaseConfig)), 
+    provideFirebaseApp(() => firebaseInitializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()), 
     provideFirestore(() => getFirestore()), 
     provideStorage(() => getStorage()), 

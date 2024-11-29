@@ -12,18 +12,18 @@
     .container-cars-card {
       background: #0000003b;
       box-shadow: none;
-      height: 78%;
+      height: 82%;
       width: 100%;
       border-radius: 15px;
       padding: 20px;
 
       ion-grid {
-        overflow-y: scroll;
+        overflow: auto;
         overflow-x: hidden;
         height: 100%;
 
         &::-webkit-scrollbar {
-          width: 7px;
+          width: 0;
           height: 10px;
         }
 
@@ -43,36 +43,61 @@
       }
 
       ion-card {
-        padding: 20px;
-        --background: #0000003b;
-      }
-
-      ion-row {
-        display: flex;
-        justify-content: center;
-
-        ion-col {
-          width: 100% !important;
-          max-width: 280px !important;
-        }
-      }
-
-      .card {
         --background: #ffffff07;
-        height: 300px;
-        padding: 10px;
-        width: 250px;
+        position: relative;
+        transition: all 0.5s ease;
+
+        &:hover {
+          .button-delete-car {
+            display: block;
+            background: #ff919140;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            transform: scale(0.8);
+          }
+        }
 
         ion-card-title {
+          font-size: 18px;
           color: white;
+          margin-bottom: 0.25rem;
+        }
+
+        ion-subtitle,
+        ion-card-content {
           font-size: 14px;
-          font-weight: initial;
+          color: rgba(255, 255, 255, 0.777);
         }
 
         img {
           width: 100%;
           height: 150px;
           object-fit: cover;
+        }
+
+        .container-cars-card-content {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          height: 100%;
+
+          ion-card-content {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        ion-button {
+          display: none;
+          position: absolute;
+          right: 0;
+          top: 0;
+          img {
+            width: 22px;
+            height: 22px;
+          }
         }
       }
     }
@@ -99,10 +124,10 @@
     }
 
     ion-button {
-      width: 140px;
-      height: 45px;
+      height: 42px;
+      width: 120px;
       max-width: 400px;
-      font-size: 13px;
+      font-size: 14px;
       margin: 12px 0;
       --background: #4693f9;
       --border-radius: 12px;
@@ -113,7 +138,7 @@
 
       img {
         width: 14px;
-        margin: 0 10px 2px 0px;
+        margin: 0 10px 1px 0px;
       }
     }
   }
@@ -127,6 +152,22 @@ spline-viewer {
   .container-cars {
     .container-cars-grid {
       padding: 4px;
+    }
+    .container-cars-grid {
+      .container-cars-card {
+        height: 78%;
+      }
+    }
+    ion-header {
+      .button-add-car {
+        width: 45px;
+        img {
+          margin: 0;
+        }
+        span {
+          display: none;
+        }
+      }
     }
   }
 }
